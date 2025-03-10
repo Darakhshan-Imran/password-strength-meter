@@ -48,14 +48,21 @@ if password:
     st.session_state['password_saved'] = False
 
 # Buttons
+
 if st.button("🔍 Check Password Strength"):
     if password:
         strength, feedback = check_password_strength(password)
-        st.success(f"Password Strength: {strength}")
+        if strength == "Weak":
+            st.error(f"Password strength: {strength}")
+        elif strength == "Moderate":
+            st.warning(f"Password strength: {strength}")
+        else:
+            st.success(f"Password Strength: {strength}")
         if feedback:
             st.write(f"{feedback}")
     else:
         st.error("⚠️ Please enter a password!")
+
 
 #FIRST APPROACH- MODERATELY PREFERRED
 
