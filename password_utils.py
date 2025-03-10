@@ -8,6 +8,48 @@ from collections import Counter
 # Define the password history file
 PASSWORD_HISTORY_FILE = "password_history.csv"
 
+# def check_password_strength(password):
+#     """
+#     Analyze the password and return its strength and improvement suggestions.
+#     """
+#     score = 0
+#     feedback = []
+
+#     # Check length
+#     if len(password) >= 8:
+#         score += 1
+#     else:
+#         feedback.append("Increase password length to at least 8 characters.")
+
+#     # Check uppercase and lowercase letters
+#     if re.search(r'[A-Z]', password) and re.search(r'[a-z]', password):
+#         score += 1
+#     else:
+#         feedback.append("Use both uppercase and lowercase letters.")
+
+#     # Check digits
+#     if re.search(r'\d', password):
+#         score += 1
+#     else:
+#         feedback.append("Include at least one digit (0-9).")
+
+#     # Check special characters
+#     if re.search(r'[!@#$%^&*]', password):
+#         score += 1
+#     else:
+#         feedback.append("Include at least one special character (!@#$%^&*).")
+
+#     # Determine strength level using range
+#     if score in range(1, 3):  # Score 1-2
+#         strength = "Weak"
+#     elif score in range(3, 4):  # Score 3-4
+#         strength = "Moderate"
+#     else:  # Score 5
+#         strength = "Strong"
+
+#     return strength, feedback
+
+
 def check_password_strength(password):
     """
     Analyze the password and return its strength and improvement suggestions.
@@ -39,15 +81,32 @@ def check_password_strength(password):
     else:
         feedback.append("Include at least one special character (!@#$%^&*).")
 
-    # Determine strength level using range
-    if score in range(1, 3):  # Score 1-2
+    # Determine strength level using correct range
+    if score in range(0, 3):  # Score 0-2
         strength = "Weak"
-    elif score in range(3, 4):  # Score 3-4
+    elif score in range(3, 5):  # Score 3-4
         strength = "Moderate"
     else:  # Score 5
         strength = "Strong"
 
     return strength, feedback
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # def save_password_to_csv(password):
