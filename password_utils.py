@@ -84,7 +84,7 @@ def check_password_strength(password):
     # Determine strength level using correct range
     if score in range(0, 3):  # Score 0-2
         strength = "Weak"
-    elif score in range(3, 5):  # Score 3-4
+    elif score in range(3, 4):  # Score 3-4
         strength = "Moderate"
     else:  # Score 5
         strength = "Strong"
